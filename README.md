@@ -1,32 +1,52 @@
 # Proposal
 
-## Development of FoodNanoDetect: An Oxford Nanopore-Based Shotgun Metagenomic Pipeline for Rapid Foodborne Pathogen Detection and Surveillance
+## Development of NanoMicrobiome: A Modular Oxford Nanopore Bioinformatics Platform for Microbiome Analysis and Foodborne Pathogen Detection
 
 ### Background
 
-Foodborne pathogens remain a major public health concern worldwide and continue to pose significant challenges to food production, processing, and distribution systems. Rapid identification of microbial contaminants is essential for ensuring food safety, monitoring shelf life, tracing contamination sources, and responding to outbreak events. Conventional culture-based methods remain the regulatory gold standard but are labor-intensive, require several days to complete, and fail to detect many viable but non-culturable microorganisms.
+Microbiome analysis has become an essential tool for food safety, animal health, environmental monitoring, and microbial ecology. Rapid and accurate characterization of microbial communities is critical for detecting foodborne pathogens, monitoring microbial succession during food processing and storage, investigating contamination sources, and understanding the ecological dynamics of complex microbial ecosystems.
 
-Next-generation sequencing technologies have greatly improved microbial characterization in food systems. Amplicon sequencing (16S rRNA and ITS) provides valuable information regarding microbial community composition but lacks sufficient resolution for strain-level pathogen identification and functional characterization. Whole-genome sequencing offers high-resolution analysis but requires successful isolation of pure bacterial cultures. Illumina-based shotgun metagenomics enables culture-independent pathogen detection but typically requires centralized sequencing facilities, longer turnaround times, and complex laboratory workflows.
+Conventional culture-based methods remain the regulatory standard for foodborne pathogen detection; however, they are labor-intensive, require several days to complete, and cannot detect viable but non-culturable microorganisms. High-throughput sequencing has transformed microbiome research by enabling culture-independent analysis of complex microbial communities. Amplicon sequencing of the bacterial 16S rRNA gene and fungal internal transcribed spacer (ITS) regions is widely used for microbial community profiling, while shotgun metagenomic sequencing enables strain-level taxonomic identification and functional characterization, including antimicrobial resistance (AMR) and virulence-associated genes.
 
-Oxford Nanopore Technologies (ONT) has emerged as an attractive alternative by providing portable, real-time, long-read sequencing capable of directly sequencing complex microbial communities. Long-read sequencing facilitates improved genome assembly, enhanced taxonomic resolution, and rapid identification of antimicrobial resistance (AMR) and virulence-associated genes. These characteristics make ONT particularly well suited for routine food safety surveillance.
+Oxford Nanopore Technologies (ONT) has emerged as a powerful long-read sequencing platform capable of generating both full-length and targeted amplicon sequences as well as real-time shotgun metagenomic data. Nanopore sequencing supports full-length 16S rRNA analysis while also enabling sequencing of commonly targeted hypervariable regions such as V1–V3, V3–V4, and V4, providing flexibility for different experimental designs and compatibility with existing microbiome studies. Similarly, ONT supports fungal community profiling using full-length or targeted ITS amplicons in addition to culture-independent shotgun metagenomic sequencing.
 
-Although several bioinformatics platforms, including the IDseq (currently CZ ID) framework, have demonstrated effective metagenomic pathogen detection, most existing workflows were originally developed for Illumina short-read sequencing and are not optimized for Oxford Nanopore data or food safety applications. Furthermore, few publicly available workflows integrate taxonomic classification, genome assembly, antimicrobial resistance analysis, virulence profiling, and automated reporting into a single reproducible pipeline.
+Compared with conventional short-read sequencing technologies, Oxford Nanopore offers several advantages, including portable instrumentation, long-read capability, real-time data generation, and improved taxonomic resolution. These features make ONT particularly attractive for rapid microbiome characterization, foodborne pathogen surveillance, and field-deployable sequencing applications.
+
+Although numerous bioinformatics tools exist for individual sequencing applications, most are designed for either amplicon or shotgun sequencing alone, and few provide an integrated framework optimized specifically for Oxford Nanopore data. Existing workflows often require substantial manual intervention, depend on multiple independent software packages, and lack standardized reporting. Furthermore, there is currently no unified, modular platform that supports targeted 16S sequencing, full-length 16S analysis, ITS fungal profiling, and Oxford Nanopore shotgun metagenomics within a single reproducible workflow.
+
+To address these limitations, this project proposes the development of NanoMicrobiome, an open-source, modular bioinformatics platform specifically designed for Oxford Nanopore microbiome analysis. The platform will provide reproducible workflows for multiple sequencing applications while maintaining a consistent user interface, standardized reporting, and scalable computational architecture.
 
 ---
 
 ## Objective
 
-The overall objective of this project is to develop **FoodNanoDetect**, a reproducible Oxford Nanopore shotgun metagenomic analysis pipeline for rapid detection and characterization of foodborne pathogens from complex food and environmental samples.
+The overall objective of this project is to develop NanoMicrobiome, a modular, reproducible bioinformatics platform for comprehensive microbiome analysis using Oxford Nanopore sequencing technology.
+
+The platform will support multiple sequencing applications through independent but interoperable workflows, enabling users to analyze bacterial and fungal communities, detect foodborne pathogens, and characterize microbial functions using a unified computational framework.
 
 Specific objectives include:
 
-1. Establish an Oxford Nanopore sequencing workflow for shotgun metagenomic analysis of food and environmental samples.
+1. Develop a modular Oxford Nanopore bioinformatics platform using Snakemake to provide reproducible, scalable, and extensible microbiome analysis workflows.
 
-2. Develop a modular bioinformatics pipeline optimized for Nanopore long-read sequencing.
+2. Develop a 16S rRNA analysis workflow supporting both full-length 16S sequencing and targeted hypervariable regions (e.g., V1–V3, V3–V4, and V4), including:
+- Basecalling and quality control
+- Primer trimming
+- Taxonomic classification
+- Alpha and beta diversity analysis
+- Differential abundance analysis
+- Publication-quality visualization
 
-3. Integrate automated taxonomic classification, genome assembly, antimicrobial resistance detection, and virulence profiling.
+3. Develop an ITS analysis workflow supporting fungal community profiling using Oxford Nanopore sequencing, including taxonomic classification, diversity analysis, and visualization based on the UNITE reference database.
 
-4. Generate standardized analytical reports suitable for food safety surveillance and outbreak investigations.
+4. Implement a shotgun metagenomic workflow for culture-independent detection and characterization of foodborne pathogens, including:
+- Dorado basecalling
+- Quality control
+- Host read removal
+- Taxonomic classification
+- Genome assembly
+- Functional annotation
+- Antimicrobial resistance gene detection
+- Virulence factor identification.
 
 ---
 
