@@ -50,6 +50,27 @@ Specific objectives include:
 5. Develop an integrated reporting framework that automatically generates standardized summary reports, interactive visualizations, publication-quality figures, and analytical statistics for all supported workflows.
 6. Design NanoMicrobiome as an extensible platform that can be expanded to support additional Oxford Nanopore sequencing applications, reference databases, and downstream analytical modules.
 ---
+## Proposed Platform Architecture
+                         NanoMicrobiome
+            Oxford Nanopore Microbiome Analysis Platform
+                                 │
+        ┌────────────────────────┼────────────────────────┐
+        │                        │                        │
+        ▼                        ▼                        ▼
+    16S rRNA                   ITS                  Shotgun WGS
+        │                        │                        │
+  ┌─────┴─────┐                  │                        │
+  ▼           ▼                  ▼                        ▼
+Full-length  Targeted       Fungal Profiling     Pathogen Detection
+16S          (V1–V3,                                 │
+             V3–V4, V4)                              ▼
+  │             │                           AMR • Virulence
+  └─────┬───────┘                                  │
+        ▼                                          ▼
+ Taxonomy • Diversity                    Functional Annotation
+        └──────────────────────┬──────────────────────┘
+                               ▼
+          Interactive Reports & Publication-ready Figures
 
 ## Proposed Workflow
 
