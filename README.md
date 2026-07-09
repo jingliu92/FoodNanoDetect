@@ -47,7 +47,8 @@ Specific objectives include:
 - Functional annotation
 - Antimicrobial resistance gene detection
 - Virulence factor identification.
-
+5. Develop an integrated reporting framework that automatically generates standardized summary reports, interactive visualizations, publication-quality figures, and analytical statistics for all supported workflows.
+6. Design NanoMicrobiome as an extensible platform that can be expanded to support additional Oxford Nanopore sequencing applications, reference databases, and downstream analytical modules.
 ---
 
 ## Proposed Workflow
